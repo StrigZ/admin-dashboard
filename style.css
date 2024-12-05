@@ -6,6 +6,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+:root {
+  --sidebar-clr: #e07a5f;
+  --header-clr: #f4f1de;
+  --body-clr: #3d405b;
 }
 
 html {
@@ -36,7 +45,7 @@ body {
 }
 
 .aside {
-  background-color: rgb(115, 133, 236);
+  background-color: var(--sidebar-clr);
   grid-row: span 2;
   padding: 16px;
   padding-left: clamp(16px, 2.5vw, 64px);
@@ -83,8 +92,105 @@ body {
 }
 
 .header {
-  background-color: blue;
+  background-color: var(--header-clr);
+
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: min-content 2fr;
+
+  > * {
+    border: 1px solid;
+    padding: 16px 32px;
+  }
+
+  .search-bar {
+    display: grid;
+    grid-template-columns: 25px 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+
+    gap: 8px;
+
+    form {
+      input {
+        width: 100%;
+        border-radius: 12px;
+        border: none;
+        padding: 6px;
+        background-color: #e2e8f0;
+      }
+    }
+  }
+
+  .profile {
+    display: grid;
+    grid-template-columns: 25px max-content;
+    align-items: center;
+    justify-content: end;
+    gap: 16px;
+
+    a {
+      display: grid;
+      grid-template-columns: 50px 1fr;
+      align-items: center;
+      gap: 16px;
+      font-weight: 500;
+
+      img {
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+
+    .notification-icon:hover {
+      transform: scale(115%);
+      cursor: pointer;
+    }
+  }
+
+  .greetings {
+    display: grid;
+    grid-template-columns: 75px 1fr;
+    align-items: center;
+    gap: 16px;
+
+    p {
+      font-weight: 500;
+
+      span {
+        display: block;
+        font-size: 0.75rem;
+      }
+    }
+
+    img {
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(75px, 100px));
+    align-items: center;
+    justify-content: end;
+    gap: 16px;
+
+    a {
+      background-color: var(--sidebar-clr);
+      padding: 8px 10px;
+      text-align: center;
+      border-radius: 16px;
+      color: white;
+      font-weight: 500;
+
+      &:hover {
+        filter: brightness(150%);
+        transform: scale(115%);
+      }
+    }
+  }
 }
 .dashboard {
-  background-color: purple;
+  background-color: var(--body-clr);
 }
