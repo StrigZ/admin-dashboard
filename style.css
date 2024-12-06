@@ -277,6 +277,39 @@ body {
   }
 
   .announcements {
+    display: grid;
+    gap: 32px;
+
+    ul {
+      background-color: var(--header-clr);
+      box-shadow: var(--card-box-shadow);
+      border-radius: 8px;
+      display: grid;
+
+      li {
+        padding: 16px 24px;
+        position: relative;
+      }
+
+      > * + * {
+        &::after {
+          content: "";
+          position: absolute;
+          background-color: var(--body-clr);
+          width: 80%;
+          height: 1px;
+          top: 0;
+        }
+      }
+
+      h4 {
+        font-size: 1rem;
+      }
+
+      p {
+        font-size: 0.8rem;
+      }
+    }
   }
 
   .trending {
