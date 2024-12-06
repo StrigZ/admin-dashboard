@@ -40,8 +40,8 @@ ol {
 body {
   display: grid;
   grid-template-columns: 1fr 5fr;
-  grid-template-rows: 1fr 5fr;
-  min-height: 100vh;
+  grid-template-rows: 20vh 1fr;
+  height: 100vh;
 }
 
 .aside {
@@ -99,7 +99,6 @@ body {
   grid-template-rows: min-content 2fr;
 
   > * {
-    border: 1px solid;
     padding: 16px 32px;
   }
 
@@ -191,6 +190,102 @@ body {
     }
   }
 }
+
 .dashboard {
   background-color: var(--body-clr);
+  grid-row: span 2;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: repeat(2, 1fr);
+
+  gap: 16px;
+  padding: 32px;
+  padding-bottom: 0;
+
+  section {
+    > h3,
+    > h4 {
+      color: white;
+    }
+  }
+
+  .projects {
+    padding-left: 0;
+    grid-row: span 2;
+    display: grid;
+    gap: 16px;
+
+    ul {
+      overflow-y: scroll;
+      display: grid;
+      gap: 32px;
+      padding: 16px;
+      padding-left: 0;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-auto-rows: 250px;
+      align-items: stretch;
+
+      li {
+        display: grid;
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+
+        &::before {
+          content: "";
+          position: absolute;
+          height: 100%;
+          width: 10px;
+          background-color: var(--sidebar-clr);
+          left: 0;
+          top: 0;
+        }
+
+        article {
+          background-color: var(--header-clr);
+          padding: 32px;
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+          display: grid;
+          grid-template-rows: repeat(2, min-content) 1fr;
+
+          p {
+            font-size: 0.9rem;
+            color: var(--body-clr);
+          }
+
+          div {
+            display: grid;
+            grid-template-columns: repeat(3, 25px);
+            grid-template-rows: min-content;
+            align-content: end;
+            justify-content: end;
+            gap: 16px;
+
+            img {
+              cursor: pointer;
+
+              &:hover {
+                transform: scale(115%);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .trending {
+    ul {
+      li {
+        article {
+          display: grid;
+          grid-template-columns: 75px max-content;
+
+          img {
+            grid-row: span 2;
+          }
+        }
+      }
+    }
+  }
 }
