@@ -17,6 +17,7 @@
   --body-clr: #3d405b;
 
   --card-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  --card-border-radius: 12px;
 }
 
 html {
@@ -230,7 +231,7 @@ body {
       li {
         display: grid;
         position: relative;
-        border-radius: 12px;
+        border-radius: var(--card-border-radius);
         overflow: hidden;
         box-shadow: var(--card-box-shadow);
 
@@ -283,7 +284,7 @@ body {
     ul {
       background-color: var(--header-clr);
       box-shadow: var(--card-box-shadow);
-      border-radius: 8px;
+      border-radius: var(--card-border-radius);
       display: grid;
 
       li {
